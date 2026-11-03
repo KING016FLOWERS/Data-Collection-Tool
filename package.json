@@ -1,0 +1,19 @@
+{
+  "name": "dct-management-portal",
+  "version": "3.1.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c blue,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "check:structure": "node tests/verify-v32.mjs",
+    "check:v37": "node tests/verify-v37.mjs",
+    "check:v38": "node tests/verify-v38.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
